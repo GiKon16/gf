@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Medium.ttf');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Semibold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+:root {
+	--main-bg-color: #0e0e0e;
+	--add-bg-color: #1d1f20;
+	--primary-color: #ffffff;
+	--accent-color: #2d65d7;
+	--accent-glass-color: #2d65d733;
+	--main-fg-color: #d0d0d0;
+	--passive-color: #686868;
+	--gray-color: #2a2a2a;
+	--warn-color: #f41515;
+	--shadow-gradient-color: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0) 0%,
+		#000000 100%
+	);
+	--bg-modal-color: rgba(0, 0, 0, 0.8);
+}
+
+@theme {
+	--color-main-bg: var(--main-bg-color);
+	--color-add-bg: var(--add-bg-color);
+	--color-primary: var(--primary-color);
+	--color-accent: var(--accent-color);
+	--color-accent-glass: var(--accent-glass-color);
+	--color-main-fg: var(--main-fg-color);
+	--color-passive: var(--passive-color);
+	--color-gray: var(--gray-color);
+	--color-warn: var(--warn-color);
+	--color-shadow-gradient: var(--shadow-gradient-color);
+	--color-bg-modal: var(--bg-modal-color);
+}
+
+* {
+	box-sizing: border-box;
+
+	font-family: 'SF Pro Text', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+input {
+	color: var(--main-fg-color);
+}

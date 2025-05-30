@@ -1,0 +1,163 @@
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Medium.ttf');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Semibold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('./assets/fonts/sf-pro-text/SFProText-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: url('assets/fonts/cormorant-infant/CormorantInfant-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: url('assets/fonts/cormorant-infant/CormorantInfant-Semibold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: url('assets/fonts/cormorant-infant/CormorantInfant-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: url('assets/fonts/cormorant-infant/CormorantInfant-BoldItalic.ttf');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Arial';
+	src: url('assets/fonts/arial/arial.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Arial';
+	src: url('assets/fonts/arial/G_ari_bd.TTF');
+	font-weight: 700;
+	font-style: normal;
+}
+
+:root {
+	--white: #ffffff;
+	--black: #0e0e0e;
+	--main-fg-color: #d0d0d0;
+	--main-bg-color: #0e1b2c;
+	--add-bg-color: #1d1f20;
+	--accent-color: #2d65d7;
+	--accent-glass-color: #2d65d733;
+	--passive-color: #686868;
+	--good-color: #28ca00;
+	--warn-color: #f41515;
+	--light-color: #74d2f9;
+	--light-gradient: linear-gradient(91.61deg, #336b82 -22.96%, #74d2f9 362.38%);
+	--step-bg: #02151d;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	font-family: 'Arial';
+	color: var(--main-fg-color);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--main-bg-color);
+}
+
+#app {
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.outstep-sm {
+	margin-left: 2.1865rem;
+}
+
+.outstep-md {
+	margin-left: 4rem;
+}
+
+.outstep-l {
+	margin-left: 6.25rem;
+}
+
+@media (width < 1150px) {
+	.step-text-br {
+		display: none;
+	}
+}
+
+@media (width < 1150px) {
+	.outstep-sm,
+	.outstep-md,
+	.outstep-l {
+		margin-left: 0;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-transform: uppercase;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	border: 0;
+	cursor: pointer;
+	transition: opacity 0.3s ease;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+li {
+	list-style: none;
+}
