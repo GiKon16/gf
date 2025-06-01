@@ -1,5 +1,22 @@
+@font-face {
+	font-family: 'Arial';
+	src: url('assets/fonts/arial/arial.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Arial';
+	src: url('assets/fonts/arial/G_ari_bd.TTF');
+	font-weight: 700;
+	font-style: normal;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
+	font-family: 'Arial';
+	font-weight: 700;
 }

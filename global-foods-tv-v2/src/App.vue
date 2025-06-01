@@ -2,9 +2,13 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const mainPerson = ref<string>('');
+const mainName = ref<string>('');
+const mainRest = ref<string>('');
+const mainCity = ref<string>('');
 const bgPersons = ref<string[]>(Array(35).fill(''));
 
 const mainPersonFade = ref(false);
+const mainPersonInfoFade = ref(false);
 const bgPersonsFade = ref(Array(35).fill(false));
 
 const isConnected = ref(false);
@@ -16,11 +20,21 @@ let reconnectAttempts = 0;
 
 const WS_URL = 'wss://vmeste29.globalfoods.ru/ws/photos/global';
 
-function fadeMainPerson(newUrl: string) {
+function fadeMainPerson(
+	newUrl: string,
+	name: string,
+	rest: string,
+	city: string
+) {
 	mainPersonFade.value = true;
+	mainPersonInfoFade.value = true;
 	setTimeout(() => {
 		mainPerson.value = newUrl;
+		mainName.value = name;
+		mainRest.value = rest;
+		mainCity.value = city;
 		mainPersonFade.value = false;
+		mainPersonInfoFade.value = false;
 	}, 500);
 }
 
@@ -67,7 +81,12 @@ function connectWebSocket() {
 
 			if (data.action === 'main' && data.photo?.image_url) {
 				if (mainPerson.value !== data.photo.image_url) {
-					fadeMainPerson(data.photo.image_url);
+					fadeMainPerson(
+						data.photo.image_url,
+						data.photo.name,
+						data.photo.place,
+						data.photo.city
+					);
 				}
 			}
 
@@ -141,6 +160,11 @@ onBeforeUnmount(() => {
 					:class="{ fade: mainPersonFade }"
 					alt="Ваше фото"
 				/>
+				<div class="main-person-info">
+					<span class="main-person-info-row">{{ mainName }}</span>
+					<span class="main-person-info-row">{{ mainRest }}</span>
+					<span class="main-person-info-row">г. {{ mainCity }}</span>
+				</div>
 			</div>
 		</div>
 		<div v-if="!isConnected" class="status error">
@@ -258,7 +282,9 @@ onBeforeUnmount(() => {
 
 .main-person {
 	width: 27vw;
-	height: 27vw;
+
+	display: flex;
+	flex-direction: column;
 
 	overflow: hidden;
 
@@ -272,9 +298,42 @@ onBeforeUnmount(() => {
 	object-fit: cover;
 	transition: opacity 0.5s;
 	opacity: 1;
+	aspect-ratio: 1/1;
 }
+
 .main-person-img.fade {
 	opacity: 0;
+}
+
+.main-person-info {
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3px;
+
+	padding: 0.5rem;
+
+	background-color: white;
+}
+
+.main-person-info-row {
+	text-align: center;
+}
+
+.main-person-info-row:nth-child(1) {
+	font-size: 1rem;
+}
+
+.main-person-info-row:nth-child(2) {
+	font-size: 0.875rem;
+}
+
+.main-person-info-row:nth-child(3) {
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: #686868;
 }
 
 .status.error {
